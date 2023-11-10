@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { postLoginWxMinAPI } from '/src/api/login.ts'
+import { postLoginWxMinAPI, postLoginWxMinSimpleAPI } from '@/api/login'
 
 // 获取 code 登录凭证
 let code = ''
@@ -27,11 +27,14 @@ const loginSuccess = (profile: LoginResult) => {
   //页面跳转
   setTimeout(() => {
     uni.switchTab({ url: '/pages/my/my' })
-  }, timeout)
+  }, 1000)
 }
 
 // 模拟手机号码快捷登录（开发练习）
-const onGetphonenumberSimple = async () => {}
+const onGetphonenumberSimple = async () => {
+  const { result } = await postLoginWxMinSimpleAPI('18361068235')
+  loginSuccess(result)
+}
 </script>
 
 <template>

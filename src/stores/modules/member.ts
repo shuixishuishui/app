@@ -9,7 +9,7 @@ export const useMemberStore = defineStore('member', () => {
   // 保存会员信息，登录时使用
   const setProfile = (val: LoginResult) => {
     // val.id = 1
-    val.mobile = '13390766037'
+    val.mobile = '18361068235'
     profile.value = val
   }
 
